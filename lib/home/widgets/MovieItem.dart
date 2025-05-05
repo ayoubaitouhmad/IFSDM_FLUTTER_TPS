@@ -1,29 +1,29 @@
 import 'package:flutter/material.dart';
 
 import '../models/Movie.dart';
-import '../views/MovieDetailScreen.dart';
+
 
 class MovieItem extends StatelessWidget {
-   final Movie movie;
+  final Movie movie;
 
-   MovieItem({required this.movie});
+  MovieItem({required this.movie});
 
   @override
   Widget build(BuildContext context) {
     return Card(
+      semanticContainer: true,
+      elevation: 5,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 8),
-      child: ListTile(
-        title: Text(movie.name),
-        trailing: Icon(Icons.arrow_forward),
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder:
-                  (context) => MovieDetailScreen(initialMovie: movie),
-            ),
-          );
-        },
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10.0),
+      ),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8.0),
+        child: Image.network(
+          movie.imageUrl,
+          fit: BoxFit.cover,
+        ),
       ),
     );
   }
