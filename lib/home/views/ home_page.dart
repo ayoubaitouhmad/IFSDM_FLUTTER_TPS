@@ -118,7 +118,7 @@ class UserInfos extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 40,
-          backgroundImage: AssetImage("./assets/images/${}.jpg"),
+          backgroundImage: AssetImage("./assets/images/man.jpg"),
         ),
         SizedBox(height: 12),
         Text(_user!.name, style: TextStyle(color: Colors.white, fontSize: 18)),
